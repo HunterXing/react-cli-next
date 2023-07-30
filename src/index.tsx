@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import style from "./index.less";
 
-const App = () => <h1>Hello World!</h1>;
+const App = () => <div className={style.appContainer}>Hello World!</div>;
 
 ReactDOM.render(
   <React.StrictMode>
