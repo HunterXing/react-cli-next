@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   // webpack 配置
@@ -94,6 +95,9 @@ module.exports = {
       //   collapseWhitespace: true, //去空格
       //   removeComments: true // 去注释
       // }
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx']
     }),
   ],
 }
