@@ -53,10 +53,34 @@ module.exports = {
           'less-loader', // Add less-loader for processing Less files
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            // 小于10kb的图片会被base64处理
+            // 优点：减少请求数量
+            // 缺点：体积变得更大
+            maxSize: 10 * 1024 
+          }
+        },
+        // 图片生成规则
+        generator: {
+          // 将图片文件输出到 static/imgs 目录中
+          // 将图片文件命名 [hash:8][ext][query]
+          // [hash:8]: hash值取8位
+          // [ext]: 使用之前的文件扩展名
+          // [query]: 添加之前的query参数
+          filename: "static/imgs/[hash:8][ext][query]",
+        },
+      },
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.jsx', '.js'], 
+    extensions: [ '.tsx', '.ts', '.jsx', '.js'],
+    alias: {
+      '@': resolve(__dirname, '../src')
+    }
   },
   // plugins 的配置
   plugins: [

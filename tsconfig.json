@@ -120,6 +120,6 @@
     // "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "includes": [
-    "types/less.d.ts"
+    "types/*.d.ts"
   ]
 }
