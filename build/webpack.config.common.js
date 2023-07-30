@@ -16,8 +16,17 @@ module.exports = {
   // loader 配置
   module: {
     rules: [
-      
-    ]
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+          },
+        },
+      },
+    ],
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.jsx', '.js'], 
@@ -28,7 +37,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       // 增加一个配置
       // 复制 '../public/index.html' 文件，并自动引入打包输出的所有资源（js/css）
-      template: '../public/index.html',
+      template: resolve(__dirname, '../public/index.html'),
       // 压缩html资源
       // minify: {
       //   collapseWhitespace: true, //去空格
