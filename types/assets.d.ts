@@ -7,3 +7,8 @@ declare module '*.jpg' {
   const resource: string;
   export = resource;
 }
+
+declare module '*.svg' {
+  const resource: string;
+  export = resource;
+}

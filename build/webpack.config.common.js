@@ -35,7 +35,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]-[hash:base64:5]'
+              }
             },
           },
         ],
@@ -48,22 +50,24 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]-[hash:base64:5]'
+              }
             },
           },
           'less-loader', // Add less-loader for processing Less files
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
+        test: /\.(png|jpe?g|gif|webp|svg)$/,
+        type: 'asset',
         parser: {
           dataUrlCondition: {
             // 小于10kb的图片会被base64处理
             // 优点：减少请求数量
             // 缺点：体积变得更大
-            maxSize: 10 * 1024 
-          }
+            maxSize: 10 * 1024,
+          },
         },
         // 图片生成规则
         generator: {
@@ -72,16 +76,16 @@ module.exports = {
           // [hash:8]: hash值取8位
           // [ext]: 使用之前的文件扩展名
           // [query]: 添加之前的query参数
-          filename: "static/imgs/[hash:8][ext][query]",
+          filename: 'static/imgs/[hash:8][ext][query]',
         },
       },
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.jsx', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
     alias: {
-      '@': resolve(__dirname, '../src')
-    }
+      '@': resolve(__dirname, '../src'),
+    },
   },
   // plugins 的配置
   plugins: [
@@ -97,7 +101,7 @@ module.exports = {
       // }
     }),
     new ESLintPlugin({
-      extensions: ['js', 'jsx', 'ts', 'tsx']
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
   ],
-}
+};

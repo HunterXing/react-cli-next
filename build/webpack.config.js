@@ -12,7 +12,7 @@ module.exports = (env) => {
     case env.production:
       return merge(commonConfig, productionConfig)
 
-    defult:
+    default:
       return new Error('No matching configuration was found')
   }
 }
