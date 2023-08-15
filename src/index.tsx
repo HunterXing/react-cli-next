@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '@/assets/styles/common.less';
 import style from './index.less';
-import Login from './login';
+// import Login from './login';
+import JotaiLearn from './jotai-learn';
 
 const App = () => {
   return (
     <div className={style.appContainer}>
-      <Login />
+      {/* <Login /> */}
+      <JotaiLearn />
     </div>
   );
 };
