@@ -1,5 +1,6 @@
 # Webpack5 从0到1 构建一个react + ts + eslint + prettier 脚手架 
 > 可参考我的github仓库的每条提交记录 https://github.com/HunterXing/react-cli-next
+> 具体内容看 basic分支的提交记录 https://github.com/HunterXing/react-cli-next/tree/basic
 
 # 一、最基础的配置
 
