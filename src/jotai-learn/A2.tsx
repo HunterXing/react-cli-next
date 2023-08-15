@@ -1,9 +1,10 @@
 import { useAtom } from 'jotai';
 import React, { memo, useEffect } from 'react';
-import { aAtom } from './atoms';
+import { aAtom, a2Atom } from './atoms';
 
 const A2 = memo(() => {
   const [aValue] = useAtom(aAtom);
+  const [a2Value] = useAtom(a2Atom);
   useEffect(() => {
     console.log('A2 ==> Effect ');
   });
@@ -16,6 +17,7 @@ const A2 = memo(() => {
       }}
     >
       <h1>A2: aValue: {aValue}</h1>
+      <h1>a2Atom: a2Value: {JSON.stringify(a2Value)}</h1>
     </div>
   );
 });

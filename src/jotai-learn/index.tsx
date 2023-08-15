@@ -7,8 +7,9 @@ import B from './B';
 
 export default function JotaiLearn() {
   const [aValue, setA] = useAtom(aAtom);
-  const [bValue, setB] = useAtom(bAtom);
+  const setB = useSetAtom(bAtom);
   const setA2 = useSetAtom(a2Atom);
+  const setA2Simple = useSetAtom(a2Atom);
 
   useEffect(() => {
     console.log('app ==> Effect ');
@@ -29,7 +30,7 @@ export default function JotaiLearn() {
       </button>
       <button
         onClick={() => {
-          setB(bValue + 1);
+          setB(2);
         }}
       >
         change bAtom
@@ -43,6 +44,13 @@ export default function JotaiLearn() {
         }}
       >
         change a2Atom
+      </button>
+      <button
+        onClick={() => {
+          setA2Simple({ a: 1 });
+        }}
+      >
+        setA2Simple
       </button>
       <A />
       <B />
