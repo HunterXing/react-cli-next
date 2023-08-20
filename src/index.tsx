@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import '@/assets/styles/common.less';
 import style from './index.less';
-// import Login from './login';
-import JotaiLearn from './jotai-learn';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { useLoadRouter } from './routers/useLoadRouter';
+import Loading from './components/Loading';
 
 const App = () => {
+  const routes = useLoadRouter();
   return (
     <div className={style.appContainer}>
-      {/* <Login /> */}
-      <JotaiLearn />
+      <Suspense fallback={<Loading />}>{useRoutes(routes)}</Suspense>
     </div>
   );
 };
@@ -20,6 +21,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

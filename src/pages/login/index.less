@@ -7,14 +7,27 @@
   background-attachment: fixed;
   background-position: left bottom, right bottom;
   background-size: calc(((100vw - 400rem) / 2) - 32rem), calc(((100vw - 400rem) / 2) - 32rem), cover;
-  background-image: url(../assets/images/left.svg), url(../assets/images/right.svg);
+  background-image: url(../../assets/images/left.svg), url(../../assets/images/right.svg);
   display: flex;
   align-items: center;
   justify-content: center;
 
   .LoginBox {
-    width: 600px;
-    height: 400px;
+    width: 400px;
+    height: 450px;
     background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .Title {
+      color: #5f6c84;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 30px 50px;
+    }
   }
 }
